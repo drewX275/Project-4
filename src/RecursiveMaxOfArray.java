@@ -14,12 +14,23 @@ public class RecursiveMaxOfArray
      * @return     The maximum value in the array.
      */
     
-    public  int max(int[] data, int from, int to)
-    {
+    public  int max(int[] data, int from, int to) throws BadArgumentsForMaxException{
         int result = 0;
-        
-        // ADD YOUR CODE HERE
-//vvvvvvvvv ADDED CODE vvvvvvvvvvvvvvvvvvvvvvvvvvvvvv        
+
+        if(data==null || data.length==0 || from < 0 || to >= data.length || from > to){
+            throw new BadArgumentsForMaxException("");
+        }
+
+        if(from==to){
+            result = data[from];
+        }
+
+        else{
+            int mid = (from+to)/2;
+            int leftMax = max(data, from, mid);
+            int rightMax = max(data, mid+1, to);
+            result = Math.max(leftMax, rightMax);
+        }
 
         return result;
     }
