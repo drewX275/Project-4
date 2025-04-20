@@ -71,7 +71,7 @@ public class RevesActionThread extends ActionThread
 
     public void executeApplication()
     {
-        towersOfHanoi(disks,a,d,b);
+        reves(disks,a,d,b,c);
     }
 
     /**
@@ -115,6 +115,23 @@ public class RevesActionThread extends ActionThread
             k--;
         }
         return k;
+    }
+
+    public void reves(int disks, Pole from, Pole to, Pole extra1, Pole extra2){
+        if(disks<=0){
+            return;
+        }
+        else if(disks==1){
+            moveDisk(from, to);
+            return;
+        }
+        else{
+            int x = computeK(disks);
+            int k = Math.min(computeK(disks-1), x);
+            reves(k,from,extra1,to,extra2);
+            towersOfHanoi(disks-k,from,to,extra2);
+            reves(k,extra1,to,from,extra2);
+        }
     }
     
     /***************************************************************************
