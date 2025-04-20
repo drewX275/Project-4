@@ -106,14 +106,8 @@ public class RevesActionThread extends ActionThread
     }
 
     public static int computeK(int disks){
-        double x = (Math.sqrt(1+8.0*disks)-1)/2.0;
-        int k = (int) Math.ceil(x);
-        while (k*(k+1)/2<disks){
-            k++;
-        }
-        while((k-1)*k/2 >= disks){
-            k--;
-        }
+        double x = disks + 1 - Math.sqrt(2*disks+1);
+        int k = (int) Math.round(x);
         return k;
     }
 
@@ -126,10 +120,9 @@ public class RevesActionThread extends ActionThread
             return;
         }
         else{
-            int x = computeK(disks);
-            int k = Math.min(computeK(disks-1), x);
-            reves(k,from,extra1,to,extra2);
-            towersOfHanoi(disks-k,from,to,extra2);
+            int k = computeK(disks);
+            reves(k,from,extra1,extra2,to);
+            reves(disks-k,from,to, extra2,extra1);
             reves(k,extra1,to,from,extra2);
         }
     }
