@@ -104,7 +104,7 @@ public final class AnimatedApplicationFrame extends JFrame
         delayFeedbackLabel = new JLabel("");
         delayLabel = new JLabel("Step delay (units of 0.01 second) ");
         delayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        delayTextField = new JTextField( (new Integer(INITIAL_DELAY)).toString() );
+        delayTextField = new JTextField( (Integer.toString(INITIAL_DELAY)));
         
         // create the panels
         controlPanel = new JPanel();

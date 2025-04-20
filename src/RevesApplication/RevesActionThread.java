@@ -1,3 +1,5 @@
+package RevesApplication;
+
 import animatedapp.*;
 import java.awt.*;
 import java.awt.event.*;
