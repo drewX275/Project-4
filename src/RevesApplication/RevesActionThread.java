@@ -57,7 +57,10 @@ public class RevesActionThread extends ActionThread
         movesMade = 0;
         moveString = "";
 
-        // ADD INITIALIZATION CODE HERE
+        a = new Pole("A", disks);
+        b = new Pole("B", disks);
+        c = new Pole("C", disks);
+        d = new Pole("D", disks);
 
     }
         
