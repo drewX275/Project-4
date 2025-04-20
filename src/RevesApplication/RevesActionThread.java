@@ -71,7 +71,7 @@ public class RevesActionThread extends ActionThread
 
     public void executeApplication()
     {
-        moveDisk(a,b);
+        towersOfHanoi(disks,a,d,b);
     }
 
     /**
