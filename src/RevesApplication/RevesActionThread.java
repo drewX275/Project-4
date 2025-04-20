@@ -104,6 +104,18 @@ public class RevesActionThread extends ActionThread
             towersOfHanoi(disks-1,extra, to,from);
         }
     }
+
+    public static int computeK(int disks){
+        double x = (Math.sqrt(1+8.0*disks)-1)/2.0;
+        int k = (int) Math.ceil(x);
+        while (k*(k+1)/2<disks){
+            k++;
+        }
+        while((k-1)*k/2 >= disks){
+            k--;
+        }
+        return k;
+    }
     
     /***************************************************************************
      * *************************************************************************
